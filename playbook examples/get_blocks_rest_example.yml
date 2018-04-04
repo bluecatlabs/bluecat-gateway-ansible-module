@@ -1,0 +1,18 @@
+- hosts: localhost
+  vars_files:
+    - external_vars.yml
+  tasks:
+  - bluecat:
+      username: "{{ username }}"
+      password: "{{ password }}"
+      protocol: "{{ protocol }}"
+      domain: "{{ domain }}"
+      version: "{{ version }}"
+      resource: ipv4_block
+      action: getall
+      resource_path:
+        - block: "{{ block }}"
+    register: result
+
+  - debug:
+      var: result

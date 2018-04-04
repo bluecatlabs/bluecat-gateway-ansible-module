@@ -1,0 +1,21 @@
+- hosts: localhost
+  vars_files:
+    - external_vars.yml
+
+  tasks:
+  - bluecat:
+      username: "{{ username }}"
+      password: "{{ password }}"
+      protocol: "{{ protocol }}"
+      domain: "{{ domain }}"
+      version: "{{ version }}"
+      resource: host_record
+      action: post
+      json_data:
+        absolute_name: "{{ absolute_name }}"
+        ip4_address: "{{ ip4_address }}"
+        ttl: "{{ ttl | int }}"
+    register: result
+
+  - debug:
+      var: result

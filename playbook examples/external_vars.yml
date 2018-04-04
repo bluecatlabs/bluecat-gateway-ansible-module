@@ -1,0 +1,5 @@
+username: portalUser
+password: portalUser
+protocol: http
+domain: localhost:5000
+version: 1
