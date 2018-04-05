@@ -23,7 +23,7 @@ When you update your Gateway, please delete the gateway_api.json file found in t
 ## Standards
 When contributing to the Gateway Ansible Module, please ensure that the code is of good quality
 - The Gateway Ansible Module is written with the PEP8 standard in mind
-- Use meaningfull variable and function names
+- Use meaningful variable and function names
 
 ## Contributing
 

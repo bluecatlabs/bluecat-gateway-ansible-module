@@ -73,6 +73,14 @@ options:
             - HTTP method to perform, GETALL is used in place of GET for retrieving a collection of resources
         required: true
         choices: ["GET", "PUT", "DELETE", "POST", "GETALL"]
+    resource_path:
+        description:
+            - Resource hierarchy path to reach the resource user wants to retrieve
+        required: false
+    json_data:
+        description:
+            - Any JSON data to be sent to the Gateway as part of the request
+        required: false
 author:
     - Xiao Dong (@xiax)
 '''
@@ -138,7 +146,7 @@ json:
 class Gateway(object):
     def __init__(self, api_json, protocol, domain, version, username, password, mocked=False, **kwargs):
         self.base_url = '{protocol}://{domain}'.format(protocol=protocol, domain=domain)
-        self.api_url = self.base_url + '/api/v{version}/'.format(version=version)
+        self.api_url = self.base_url + '/api/v{version}'.format(version=version)
         self.username = username
         self.password = password
         if api_json:
@@ -153,7 +161,7 @@ class Gateway(object):
         self.response_key = {'PUT': 204, 'POST': 201, 'DELETE': 204}
 
     def get_api_json(self):
-        response = requests.get(self.api_url + 'gateway_api.json/')
+        response = requests.get(self.api_url + '/gateway_api.json/')
         with open('gateway_api.json', 'w') as api_json_file:
             api_json_file.write(json.dumps(response.json()))
         return response.json()['resources']
@@ -260,8 +268,7 @@ class Gateway(object):
         if not url_path:
             raise Exception('Provided parameters does not match any valid paths!')
 
-        url_path = url_path.strip('/')
-        response = self.session.request(action, self.api_url + url_path + '/', json=query_params)
+        response = self.session.request(action, self.api_url + url_path, json=query_params)
         self.logout()
         return response
 
