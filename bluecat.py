@@ -155,6 +155,7 @@ class Gateway(object):
             self.json = self.get_api_json()
         self.session = requests.Session()
         self.mocked = mocked
+
         # List of one item dictionaries
         self.resource_path = kwargs['resource_path']
         self.json_data = kwargs['json_data']
@@ -187,33 +188,22 @@ class Gateway(object):
         response._content = {'message': 'No changes made to {resource}'.format(resource=resource)}
         return response
 
-    def invoke(self, resource, action):
-        if self.mocked and action.lower() not in ['get']:
-            return self.generate_mocked_response(resource, action)
-        resource = resource.lower()
-        action = action.lower()
-        get_all = False
-        if action == 'getall':
-            get_all = True
-            action = 'get'
-
-        self.login(self.username, self.password)
-        definition = self.json[resource][action]
+    def parse_query_params(self, definition):
         query_params = {}
-
-        # Populate query_params with any matches in kwargs
         for key, value in definition['query_parameters'].items():
             if key in self.json_data:
-                query_params[key] = self.json_data[key]
+                if value['type'] == 'boolean' and isinstance(self.json_data[key], basestring):
+                    if self.json_data[key].lower() == 'true':
+                        query_params[key] = True
+                    else:
+                        query_params[key] = False
+                elif value['type'] == 'integer':
+                    query_params[key] = int(self.json_data[key])
+                else:
+                    query_params[key] = self.json_data[key]
+        return query_params
 
-        # Populate path_params with any matches in kwargs
-        resources = OrderedDict()
-        for resource in self.resource_path:
-            # There should only be one item in each resource defined in resource_path
-            for key, value in resource.items():
-                resources[key] = value
-
-        # Populate processed_path_params with paths that match user provided path parameters
+    def parse_path_params(self, definition, resources):
         processed_path_params = {}
         for path, parameters in definition['path_parameters'].items():
             # Make sure parameters user gave match parameters accepted by path
@@ -248,13 +238,46 @@ class Gateway(object):
                     except AttributeError:
                         escaped_value = value
                     processed_path_params[path][param] = escaped_value
+        return processed_path_params
+
+    def invoke(self, resource, action):
+        if self.mocked and action.lower() not in ['get']:
+            return self.generate_mocked_response(resource, action)
+        resource = resource.lower()
+        action = action.lower()
+        get_all = False
+        if action == 'getall':
+            get_all = True
+            action = 'get'
+
+        self.login(self.username, self.password)
+        definition = self.json[resource][action]
+
+        # Populate query_params with any matches in kwargs
+        query_params = self.parse_query_params(definition)
+
+        # Populate path_params with any matches in kwargs
+        resources = OrderedDict()
+        for resource in self.resource_path:
+            # There should only be one item in each resource defined in resource_path
+            for key, value in resource.items():
+                resources[key] = value
+
+        # Populate processed_path_params with paths that match user provided path parameters
+        processed_path_params = self.parse_path_params(definition, resources)
 
         # If more than one path matched user parameters, check which we should use based on get_all flag
         if len(processed_path_params.keys()) > 1 and get_all:
             for path in processed_path_params.keys():
                 if path.strip('/').endswith('}'):
                     del processed_path_params[path]
-            processed_path_params = OrderedDict(sorted(processed_path_params.items(), key=lambda t: len(t[0]), reverse=True))
+        elif not get_all:
+            for path in processed_path_params.keys():
+                if not path.strip('/').endswith('}'):
+                    del processed_path_params[path]
+
+        if len(processed_path_params.keys()) > 1:
+            raise Exception('Given path parameters do not match unique path!')
 
         # Insert user provided parameter values into path
         url_path = ''

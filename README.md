@@ -15,10 +15,12 @@ pip install requests
 The first time the module is run it will download the gateway_api.json file from your Gateway instance into the same folder where the ansible playbook was executed.
 The module reads from the gateway_api.json file to determine what REST API requests your Gateway instance supports.
 If you upgrade your Gateway image or want to connect to a different Gateway instance, please delete the gateway_api.json file in the same folder as the ansible playbook.
+Variables in external_vars.yml shouldn't change often and can be set once and used with multiple playbooks.
 
 ## Upgrading the Gateway
 
-When you update your Gateway, please delete the gateway_api.json file found in the same folder as your ansible playbook for communicating with the Gateway.
+When upgrading Gateway, please delete the gateway_api.json file found in the same folder as the ansible playbooks for communicating with the Gateway.
+This will force the Ansible module to download the latest version of gateway_api.json from the newly upgraded Gateway instance.
 
 ## Standards
 When contributing to the Gateway Ansible Module, please ensure that the code is of good quality
