@@ -38,7 +38,7 @@ When contributing to the Gateway Ansible Module, ensure that your code:
 
 ## License
 
-Copyright 2017 BlueCat Networks, Inc.
+Copyright 2018 BlueCat Networks, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
