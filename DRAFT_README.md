@@ -2,11 +2,10 @@
 
 # BlueCat Certified Ansible Integration
 
-BlueCat Integrity Gateway Module for Ansible.
 
 ## Dependencies
 
-Python "requests" module
+You must install the Python "requests" module.
 
 ```
 pip install requests
