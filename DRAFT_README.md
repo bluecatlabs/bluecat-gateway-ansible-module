@@ -1,7 +1,5 @@
 ![alt text](logo.png "logo")
 
-# BlueCat Certified Ansible Integration
-
 ## BlueCat DNS Integrity Gateway Module and Playbook for Ansible.
 
 ## Dependencies
