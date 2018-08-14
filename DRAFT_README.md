@@ -1,6 +1,6 @@
 ![alt text](logo.png "logo")
 
-## BlueCat DNS Integrity Gateway Module and Playbook for Ansible.
+## BlueCat DNS Integrity Gateway Module and Playbook for Ansible
 
 ## Dependencies
 
