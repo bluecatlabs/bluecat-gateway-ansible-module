@@ -16,6 +16,7 @@ The first time you run the BlueCat Integrity Gateway Module for Ansible, it will
 The module reads from the `gateway_api.json` file to determine what REST API requests your Gateway instance supports.
 If you upgrade your Gateway image or want to connect to a different Gateway instance, delete the `gateway_api.json` file in the same folder as the Ansible playbook.
 BlueCay recommends that you should not often change variables in `external_vars.yml.` The variables should be set once, and then used with multiple playbooks.
+To allow the Ansible playbook to consume the REST APIs within a workflow to call Gateway and BlueCat Address Manager (BAM), you must manually download the REST API workflow from GitHub, and then import that REST API workflow into your Gateway instance. 
 
 ## Upgrading the Gateway
 
