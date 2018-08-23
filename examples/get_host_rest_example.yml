@@ -1,6 +1,6 @@
 - hosts: localhost
   vars_files:
-    - external_vars.yml
+    - /vars/external_vars.yml
 
   tasks:
   - bluecat:
@@ -9,7 +9,7 @@
       protocol: "{{ protocol }}"
       domain: "{{ domain }}"
       version: "{{ version }}"
-      resource: host_record
+      resource: host_records
       action: get
       resource_path:
         - absolute_name: "{{ absolute_name }}"

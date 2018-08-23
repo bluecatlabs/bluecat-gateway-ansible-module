@@ -1,6 +1,6 @@
 - hosts: localhost
   vars_files:
-    - external_vars.yml
+    - /vars/external_vars.yml
 
   tasks:
   - bluecat:
@@ -9,14 +9,10 @@
       protocol: "{{ protocol }}"
       domain: "{{ domain }}"
       version: "{{ version }}"
-      resource: host_record
-      action: put
+      resource: host_records
+      action: delete
       resource_path:
         - absolute_name: "{{ absolute_name }}"
-      json_data:
-        ip4_address: "{{ ip4_address }}"
-        ttl: "{{ ttl | int }}"
-        properties: {{}}
     register: result
 
   - debug:
