@@ -1,6 +1,7 @@
 - hosts: localhost
   vars_files:
-    - external_vars.yml
+    - /vars/external_vars.yml
+
   tasks:
   - bluecat:
       username: "{{ username }}"
@@ -8,11 +9,10 @@
       protocol: "{{ protocol }}"
       domain: "{{ domain }}"
       version: "{{ version }}"
-      resource: ipv4_network
+      resource: ipv4_networks
       action: get
       resource_path:
-        - configuration: "{{ configuration | default('default_config') }}"
-        - network: "{{ network }}"
+        - block: "{{ block }}"
     register: result
 
   - debug:

@@ -1,6 +1,7 @@
 - hosts: localhost
   vars_files:
-    - external_vars.yml
+    - /vars/external_vars.yml
+
   tasks:
   - bluecat:
       username: "{{ username }}"
@@ -8,8 +9,8 @@
       protocol: "{{ protocol }}"
       domain: "{{ domain }}"
       version: "{{ version }}"
-      resource: zone
-      action: getall
+      resource: zones
+      action: get
       resource_path:
         - zone: "{{ zone }}"
     register: result
