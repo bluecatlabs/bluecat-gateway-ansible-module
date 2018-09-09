@@ -1,4 +1,4 @@
-![alt text](BlueCat Certified@4x.png "logo")
+![alt text](bluecat_logo.png "bluecat_logo")
 
 ## BlueCat DNS Integrity Gateway Module and Playbook for Ansible
 
