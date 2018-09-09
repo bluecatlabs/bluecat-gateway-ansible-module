@@ -1,5 +1,6 @@
 ![alt text](logo.png "logo")
 ![alt text](bluecat_logo_1.png "bluecat_logo_1")
+![alt text](bluecat_logo_2.png "bluecat_logo_2")
 
 ## BlueCat Gateway Module and Playbook for Ansible
 
