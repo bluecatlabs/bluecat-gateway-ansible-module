@@ -1,7 +1,7 @@
 ![alt text](logo.png "logo")
 ![alt text](bluecat_logo_1.png "bluecat_logo_1")
 
-## BlueCat DNS Integrity Gateway Module and Playbook for Ansible
+## BlueCat Gateway Module and Playbook for Ansible
 
 ## Dependencies
 
@@ -13,21 +13,21 @@ pip install requests
 
 ## Using the module
 
-The first time you run the BlueCat Integrity Gateway Module for Ansible, it will download the `gateway_api.json` file from your Gateway instance into the same folder where the Ansible playbook was executed.
-The module reads from the `gateway_api.json` file to determine what REST API requests your Gateway instance supports.
-If you upgrade your Gateway image or want to connect to a different Gateway instance, delete the `gateway_api.json` file in the same folder as the Ansible playbook.
+The first time you run the BlueCat Gateway Module for Ansible, it will download the `gateway_api.json` file from your BlueCat Gateway instance into the same folder where the Ansible playbook was executed.
+The module reads from the `gateway_api.json` file to determine what REST API requests your BlueCat Gateway instance supports.
+If you upgrade your BlueCat Gateway image or want to connect to a different BlueCat Gateway instance, delete the `gateway_api.json` file in the same folder as the Ansible playbook.
 
 BlueCat recommends that you should not often change variables in `external_vars.yml.` The variables should be set once, and then used with multiple playbooks.
 
-To allow the Ansible playbook to consume the REST APIs within a workflow to call Gateway and BlueCat Address Manager (BAM), you must manually download the REST API workflow from GitHub, and then import that REST API workflow into your Gateway instance. 
+To allow the Ansible playbook to consume the REST APIs within a workflow to call Gateway and BlueCat Address Manager (BAM), you must manually download the REST API workflow from GitHub, and then import that REST API workflow into your BlueCat Gateway instance. 
 
-## Upgrading the Gateway
+## Upgrading BlueCat Gateway
 
-When you upgrade the Gateway, delete the `gateway_api.json` file that resides in the same folder as the Ansible playbooks for communicating with the Gateway.
-This forces the Ansible module to download the latest version of `gateway_api.json` from the newly upgraded Gateway instance.
+When you upgrade BlueCat Gateway, delete the `gateway_api.json` file that resides in the same folder as the Ansible playbooks for communicating with BlueCat Gateway.
+This forces the Ansible module to download the latest version of `gateway_api.json` from the newly upgraded BlueCat Gateway instance.
 
 ## Adhering to standards
-When contributing to the Gateway Ansible Module, ensure that your code:
+When contributing to the BlueCat Gateway Ansible Module, ensure that your code:
 - Follows the PEP8 standard
 - Uses meaningful variable and function names
 
