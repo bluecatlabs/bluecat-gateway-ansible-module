@@ -1,4 +1,4 @@
-![alt text](bluecat-certified-logo.png "bluecat-certified-logo")
+![alt text](bluecat-certified-logo-Sept10.png "bluecat-certified-logo-Sept10")
 
 # Ansible Bluecat Integrity Gateway Module
 
