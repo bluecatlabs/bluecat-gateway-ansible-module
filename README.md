@@ -23,7 +23,7 @@ If you upgrade your BlueCat Gateway image or want to connect to a different Blue
 BlueCat recommends that you should not often change variables in `external_vars.yml.` The variables should be set once, and then used with multiple playbooks.
 
 To allow the Ansible playbook to consume the REST APIs within a workflow to call BlueCat Gateway and BlueCat Address Manager (BAM), you must import the REST API workflow into your BlueCat Gateway instance. You can either manually download the REST API workflow from GitHub (https://github.com/bluecatlabs/gateway-workflows/tree/master/Community), or perform a GitHub Import from Workflow Export/Import in the BlueCat Gateway UI (The REST API workflow is imported along with all Examples and Community workflows). Once the REST API workflow is imported, you must set permissions for it using Workflow Permissions, and then you can begin using the workflows.
-To view the swagger docs for the REST API go to `BlueCatGatewayFQDN/api/v1/`.
+To view the swagger docs for the REST API go to `<BlueCatGatewayFQDN>/api/v1/`.
 
 ## Upgrading BlueCat Gateway
 
