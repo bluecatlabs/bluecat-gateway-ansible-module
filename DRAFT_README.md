@@ -22,7 +22,7 @@ If you upgrade your BlueCat Gateway image or want to connect to a different Blue
 
 BlueCat recommends that you should not often change variables in `external_vars.yml.` The variables should be set once, and then used with multiple playbooks.
 
-To allow the Ansible playbook to consume the REST APIs within a workflow to call Gateway and BlueCat Address Manager (BAM), you must manually download the REST API workflow from GitHub, and then import that REST API workflow into your BlueCat Gateway instance. 
+To allow the Ansible playbook to consume the REST APIs within a workflow to call BlueCat Gateway and BlueCat Address Manager (BAM), you must manually download the REST API workflow from GitHub, and then import that REST API workflow into your BlueCat Gateway instance. 
 
 ## Upgrading BlueCat Gateway
 
