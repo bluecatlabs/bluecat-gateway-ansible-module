@@ -1,3 +1,5 @@
+![alt text](bluecat-certified-logo.png "bluecat-certified-logo")
+
 # Ansible Bluecat Integrity Gateway Module
 
 Bluecat Integrity Gateway Module for Ansible.
