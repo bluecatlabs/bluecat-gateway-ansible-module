@@ -1,6 +1,6 @@
 ![alt text](bluecat_certified.png "bluecat_certified")
 
-## BlueCat Gateway Module and Playbook for Ansible
+## BlueCat Gateway Module and Playbooks for Ansible
 
 ## Dependencies
 
