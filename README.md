@@ -1,4 +1,4 @@
-![alt text](bluecat-certified-logo-Sept10.png "bluecat-certified-logo-Sept10")
+![alt text](bluecat_certified.png "bluecat_certified")
 
 ## BlueCat Gateway Module and Playbook for Ansible
 
