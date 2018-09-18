@@ -4,6 +4,8 @@
 
 ## Dependencies
 
+Requires BlueCat Gateway v18.10.1 or greater
+
 You must install the Python "requests" module.
 
 ```
