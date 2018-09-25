@@ -1,6 +1,6 @@
 - hosts: localhost
   vars_files:
-    - /vars/external_vars.yml
+    - vars/external_vars.yml
   tasks:
   - bluecat:
       username: "{{ username }}"
