@@ -239,7 +239,7 @@ class Gateway(object):
             for path in list(processed_path_params):
                 if path.strip('/').endswith('}'):
                     del processed_path_params[path]
-        elif not get_all:
+        elif not get_all and action != 'post':
             for path in list(processed_path_params):
                 if not path.strip('/').endswith('}'):
                     del processed_path_params[path]
@@ -369,10 +369,13 @@ def run_module():
         version=dict(type='str', required=True),
         username=dict(type='str', required=True),
         password=dict(type='str', required=True, no_log=True),
-        action=dict(type='str', required=True,
-                    choices=['GET', 'PUT', 'DELETE', 'POST', 'put', 'delete', 'post', 'get', 'getall', 'GETALL']),
+        action=dict(
+            type='str',
+            required=True,
+            choices=['GET', 'PATCH', 'DELETE', 'POST', 'patch', 'delete', 'post', 'get', 'getall', 'GETALL'],
+        ),
         resource_path=dict(type='list', default=[]),
-        json_data=dict(type='dict', default={})
+        json_data=dict(type='dict', default={}),
     )
 
     # Load Gateway API JSON specification

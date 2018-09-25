@@ -1,6 +1,6 @@
 - hosts: localhost
   vars_files:
-    - /vars/external_vars.yml
+    - vars/external_vars.yml
 
   tasks:
   - bluecat:
@@ -16,7 +16,6 @@
       json_data:
         ip4_address: "{{ ip4_address }}"
         ttl: "{{ ttl | int }}"
-        properties: {{}}
     register: result
 
   - debug:
