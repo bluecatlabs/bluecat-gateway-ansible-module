@@ -34,40 +34,40 @@ ANSIBLE_METADATA = {
 
 DOCUMENTATION = '''
 ---
-module: Bluecat Ansible Module for Gateway
+module: BlueCat Ansible Module for Gateway
 
-short_description: This is an experimental Ansible module for integrating with Bluecat Integrity Gateway
+short_description: This is an experimental Ansible module for integrating with BlueCat Gateway
 
 version_added: "1.0"
 
 description:
-    - "Manage Bluecat Integrity Gateway and Bluecat Address Manager via REST API
+    - "Manage BlueCat Gateway and BlueCat Address Manager via REST API
 
 options:
     username:
         description:
-            - Bluecat Address Manager API username
+            - BlueCat Address Manager API username
             - The user must be at least an API user and should have permissions to access the resources on Address Manager
         required: true
     password:
         description:
-            - Bluecat Address Manager API user password
+            - BlueCat Address Manager API user password
         required: true
     protocol:
         description:
-            - HTTP or HTTPS for connecting to Bluecat Integrity Gateway
+            - HTTP or HTTPS for connecting to BlueCat Gateway
         required: false
     domain:
         description:
-            - Fully qualified domain name or IP address for Bluecat Integrity Gateway
+            - Fully qualified domain name or IP address for BlueCat Gateway
         required: true
     version:
         description:
-            - Version of Bluecat Integrity Gateway REST API to use
+            - Version of BlueCat Gateway REST API to use
         required: true
     resource:
         description:
-            - Bluecat Address Manager resource to retrieve
+            - BlueCat Address Manager resource to retrieve
         required: true
     action:
         description:
