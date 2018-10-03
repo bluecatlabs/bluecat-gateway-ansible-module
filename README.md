@@ -14,6 +14,8 @@ pip install requests
 
 ## Using the module
 
+#### Attention: __You _must_ be familiar with Ansible in order to use the module and playbooks.__
+
 To obtain the BlueCat Ansible module and playbooks, pull or clone this repository.
 * `bluecat.py` is the Ansible module
 * playbooks are in the Examples folder in YAML format
