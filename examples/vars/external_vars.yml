@@ -1,5 +1,5 @@
 username: portalUser
 password: portalUser
 protocol: http
-domain: localhost:5000
+domain: localhost
 version: 1
